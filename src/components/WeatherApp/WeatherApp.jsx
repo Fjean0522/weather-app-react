@@ -9,12 +9,34 @@ import wind_icon from '../assets/wind.png'
 import humidity_icon from '../assets/humidity.png'
 
 const WeatherApp = () => {
+  
+  const api_key = '0bc33a8bd7ce493f86a174800232707';
+
+  const search = async () => {
+    try {
+      const element = document.getElementsByClassName('city-input');
+
+      if (element[0].value === '') {
+      return 0;
+      };
+
+      const url = `https://api.weatherapi.com/v1/current.json?key=${api_key}&q=${element[0].value}`;
+      const response = await fetch(url);
+      const data = response.json();
+      
+      console.log(data);
+
+    } catch (error) {
+      console.log('ERROR 404');
+    };
+  };
+
   return (
     <div className='container'>
       <div className="top-bar">
         <input type="text" className="city-input" placeholder='Search' />
         <div className="search-icon">
-          <img src={search_icon} alt="search icon" />
+          <img src={search_icon} alt="search icon" onClick={() => {search()}}/>
         </div>
       </div>
 
