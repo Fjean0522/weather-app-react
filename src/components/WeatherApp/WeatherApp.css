@@ -43,9 +43,38 @@
 
 
 /* WEATHER INFORMATION */
+.weather-location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px;
+    font-size: 40px;
+    font-weight: 500;
+}
+
 .weather-info {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 4rem;
+}
+
+.weather-temp {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.humidity-percentage,
+.wind-speed {
+    font-size: 24px;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.weather-location,
+.weather-info {
+    color: whitesmoke;
 }
