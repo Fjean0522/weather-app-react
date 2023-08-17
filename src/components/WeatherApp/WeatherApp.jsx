@@ -18,15 +18,19 @@ const WeatherApp = () => {
         </div>
       </div>
 
-      <div className="weather-image">
+      {/* <div className="weather-image">
         <img src={cloudy_icon} alt="weather icon" />
-      </div>
+      </div> */}
 
-      <div className="weather-temp">24°C</div>
+      <div className="weather-info">
+        <div className="weather-image">
+          <img src={cloudy_icon} alt="weather icon" />
+        </div>
+    
+        <div className="weather-temp">24°C</div>
 
-      <div className="weather-location">London</div>
+        <div className="weather-location">London</div>
 
-      <div className="data-container">
         <div className="element">
           <img src={humidity_icon} alt="" className="icon" />
           <div className="data">
@@ -38,7 +42,7 @@ const WeatherApp = () => {
         <div className="element">
           <img src={wind_icon} alt="" className="icon" />
           <div className="data">
-            <div className="humidity-percentage">18 km/h</div>
+            <div className="wind-speed">18 km/h</div>
             <div className="text">Wind Speed</div>
           </div>
         </div>
