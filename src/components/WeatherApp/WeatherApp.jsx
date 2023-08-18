@@ -24,6 +24,16 @@ const WeatherApp = () => {
       const response = await fetch(url);
       const data = response.json();
       
+      const humidity = document.getElementsByClassName('humidity-percentage');
+      const wind = document.getElementsByClassName('wind-speed');
+      const temperature = document.getElementsByClassName('weather-temp');
+      const location = document.getElementsByClassName('weather-location');
+
+      humidity.innerHTML = data.current.humidity
+      wind.innerHTML = data.current.wind_kph
+      temperature.innerHTML = data.current.temp_c
+      location.innerHTML = data.location.name
+
       console.log(data);
 
     } catch (error) {
