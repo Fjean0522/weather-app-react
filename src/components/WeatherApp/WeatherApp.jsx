@@ -9,32 +9,31 @@ import wind_icon from '../assets/wind.png'
 import humidity_icon from '../assets/humidity.png'
 
 const WeatherApp = () => {
-  
-  const api_key = '0bc33a8bd7ce493f86a174800232707';
 
   const search = async () => {
+    
+
     try {
+      const api_key = '0bc33a8bd7ce493f86a174800232707';
       const element = document.getElementsByClassName('city-input');
+      const url = `https://api.weatherapi.com/v1/current.json?key=${api_key}&q=${element[0].value}`;
 
       if (element[0].value === '') {
       return 0;
       };
 
-      const url = `https://api.weatherapi.com/v1/current.json?key=${api_key}&q=${element[0].value}`;
       const response = await fetch(url);
-      const data = response.json();
+      const data = await response.json();
       
-      const humidity = document.getElementsByClassName('humidity-percentage');
-      const wind = document.getElementsByClassName('wind-speed');
-      const temperature = document.getElementsByClassName('weather-temp');
-      const location = document.getElementsByClassName('weather-location');
+      const humidity = document.getElementsByClassName('humidity-percentage')[0];
+      const wind = document.getElementsByClassName('wind-speed')[0];
+      const temperature = document.getElementsByClassName('weather-temp')[0];
+      const location = document.getElementsByClassName('weather-location')[0];
 
-      humidity.innerHTML = data.current.humidity
-      wind.innerHTML = data.current.wind_kph
-      temperature.innerHTML = data.current.temp_c
-      location.innerHTML = data.location.name
-
-      console.log(data);
+      humidity.innerHTML = data.current.humidity;
+      wind.innerHTML = data.current.wind_kph;
+      temperature.innerHTML = data.current.temp_c;
+      location.innerHTML = data.location.name;
 
     } catch (error) {
       console.log('ERROR 404');
